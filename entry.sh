@@ -32,16 +32,16 @@ if [[ -z "$IFCFG" ]]; then
 fi
 
 # get runtime ip as default host
-IP=`ifconfig $IFCFG | grep inet | awk '{print $2}'`
+#IP=`ifconfig $IFCFG | grep inet | awk '{print $2}'`
 
 if [[ -z "$TRACKER_HOST" ]]; then
-  TRACKER_HOST="$IP"
+  TRACKER_HOST=`ifconfig $IFCFG | grep inet | awk '{print $2}'`
 fi
 if [[ -z "$STORAGE_HOST" ]]; then
-  STORAGE_HOST="$IP"
+  STORAGE_HOST=`ifconfig $IFCFG | grep inet | awk '{print $2}'`
 fi
 if [[ -z "$FDHT_HOST" ]]; then
-  FDHT_HOST="$IP"
+  FDHT_HOST=`ifconfig $IFCFG | grep inet | awk '{print $2}'`
 fi
 
 # fix a bug of fastdfs getting storage from tracker ip is docker container ip
