@@ -27,8 +27,12 @@ set -e
 # STORAGE_HOST
 #
 
+if [[ -z "$IFCFG" ]]; then
+  IFCFG="eth0"
+fi
+
 # get runtime ip as default host
-IP=`ifconfig eth0 | grep inet | awk '{print $2}'`
+IP=`ifconfig $IFCFG | grep inet | awk '{print $2}'`
 
 if [[ -z "$TRACKER_HOST" ]]; then
   TRACKER_HOST="$IP"
