@@ -82,8 +82,8 @@ RUN cd $SOURCE_DIR                                                              
     && sed -i "s|^base_path=.*$|base_path=$FDFS_DATA_DIR|g"                     $FDFS_CONF_DIR/client.conf             \
     && sed -i "s|^store_path0=.*$|store_path0=$FDFS_DATA_DIR/store0|g"          $FDFS_CONF_DIR/storage.conf            \
     && sed -i "s|^store_path0=.*$|store_path0=$FDFS_DATA_DIR/store0|g"          $FDFS_CONF_DIR/mod_fastdfs.conf        \
-    && sed -i "s|^store_path0=.*$|store_path0=$FDFS_DATA_DIR/store0|g"          $FDFS_CONF_DIR/mod_fastdfs.conf        \
-    && sed -i "s|^url_have_group_name.*$|url_have_group_name = true|g"          $FDHT_CONF_DIR/fdht_client.conf        \
+    && sed -i "s|^url_have_group_name.*$|url_have_group_name = true|g"          $FDFS_CONF_DIR/mod_fastdfs.conf        \
+    && sed -i "s|^base_path=.*$|base_path=$FDHT_DATA_DIR|g"                     $FDHT_CONF_DIR/fdht_client.conf        \
     && sed -i "s|^base_path=.*$|base_path=$FDHT_DATA_DIR|g"                     $FDHT_CONF_DIR/fdhtd.conf              \
     && sed -i "4d"                                                              $FDHT_CONF_DIR/fdht_servers.conf       \
     && sed -i "s|^check_file_duplicate=.*$|check_file_duplicate=1|g"            $FDFS_CONF_DIR/storage.conf            \
